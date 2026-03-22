@@ -12,20 +12,36 @@ export default function TriviaPage() {
     const [respondido, setRespondido] = useState(false);
     const [preguntaActual, setPreguntaActual] = useState(1);
     const [errorAPI, setErrorAPI] = useState(false);
-    
+
     const yaSePidioPregunta = useRef(false);
 
     const cargarNuevaPregunta = async () => {
         if (preguntaActual >= 10) {
-            localStorage.setItem('ultimo_score', correctas.toString());
+
+            const username = localStorage.getItem('user_name');
+
+            if (username) {
+                // Guardar en local
+                localStorage.setItem(`score_${username}`, correctas.toString());
+
+                // Guardar en Mongo
+                await fetch('/api/users/score', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username,
+                        score: correctas
+                    })
+                });
+            }
+
             router.push('/Salon');
             return;
         }
-
         setLoading(true);
         setRespondido(false);
         setErrorAPI(false);
-        
+
         const nuevaPregunta = await generarPregunta();
 
         if (nuevaPregunta && !nuevaPregunta.error) {
@@ -45,7 +61,7 @@ export default function TriviaPage() {
             setLoading(true);
             setErrorAPI(false);
             const primera = await generarPregunta();
-            
+
             if (primera && !primera.error) {
                 setDatos(primera);
             } else {
@@ -70,7 +86,7 @@ export default function TriviaPage() {
     return (
         <div className="min-h-screen bg-[#fdfaf1] p-6 text-[#2c1e14]">
             <div className="max-w-2xl mx-auto">
-                
+
                 <p className="text-center mb-2 font-black text-[#a68663] uppercase text-xs tracking-widest">
                     Track {preguntaActual} de 10
                 </p>

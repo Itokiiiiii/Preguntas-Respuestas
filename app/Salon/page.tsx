@@ -12,30 +12,35 @@ export default function HomePage() {
   const router = useRouter();
   const [leaderboard, setLeaderboard] = useState<TopUsuarios[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   // Estado para el usuario actual
   const [stats, setStats] = useState({ nombre: 'Melómano', score: 0 });
 
   useEffect(() => {
-    // 1. Recuperar datos del usuario
-    const savedScore = localStorage.getItem('ultimo_score');
-    const savedName = localStorage.getItem('user_name'); // Asumiendo que se guarda en el Login
-    
-    if (savedScore) setStats(prev => ({ ...prev, score: parseInt(savedScore) }));
-    if (savedName) setStats(prev => ({ ...prev, nombre: savedName }));
+    const savedName = localStorage.getItem('user_name');
 
-    // 2. Simulación de Ranking
     const fetchRanking = async () => {
       try {
-        const mockData: TopUsuarios[] = [
-          { id: '1', usuario: 'CharlyGarcia_Fan', score: 2500 },
-          { id: '2', usuario: 'Gustavo_Cerati', score: 2100},
-          { id: '3', usuario: 'Spinetta_Eterno', score: 1950},
-          { id: '4', usuario: 'Natalia_L', score: 1500},
-        ];
-        setLeaderboard(mockData);
-        setIsLoading(false);
+        const res = await fetch('/api/users/ranking');
+        const data = await res.json();
+
+        setLeaderboard(data);
+
+        // Buscar el usuario actual en el ranking
+        if (savedName) {
+          const usuarioActual = data.find(
+            (u: TopUsuarios) => u.usuario === savedName
+          );
+
+          setStats({
+            nombre: savedName,
+            score: usuarioActual ? usuarioActual.score : 0
+          });
+        }
+
       } catch (error) {
+        console.log("Error al cargar ranking");
+      } finally {
         setIsLoading(false);
       }
     };
@@ -45,7 +50,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#fdfaf1] text-[#2c1e14] font-sans p-6 relative">
-      
+
       {/* CUADRO DE SCORE (Esquina superior derecha) */}
       <div className="absolute top-6 right-6 bg-[#4a3728] p-3 rounded-xl border-b-4 border-[#2c1e14] shadow-lg flex flex-col items-end">
         <span className="text-[#c2a382] text-[10px] font-black uppercase tracking-tighter">Usuario Actual</span>
