@@ -5,6 +5,7 @@
 * `id`: ObjectId 
 * `nombre`: String (nombre xd)
 * `pssw`: String (la contraseña)
+* `score`: 
 
 ### 2. Preguntas: `preguntas`
 * `id`: ObjectId.
