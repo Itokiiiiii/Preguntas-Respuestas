@@ -15,10 +15,13 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: "Usuario ya existe" }, { status: 400 });
     }
 
+    // Al insertar, ahora forzamos el campo 'role'
     await db.collection("users").insertOne({
         username: body.username,
         password: body.password,
-        score: 0
+        role: "user",
+        score: 0,
+        createdAt: new Date()
     });
 
     return NextResponse.json({ success: true });
