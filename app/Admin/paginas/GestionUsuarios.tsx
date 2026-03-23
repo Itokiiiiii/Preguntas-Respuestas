@@ -6,7 +6,7 @@ export default function GestionUsuarios() {
     const [formData, setFormData] = useState({
         _id: '',
         username: '',
-        password: '', // Añadimos password ya que tu DB lo usa
+        password: '',
         role: 'user',
         score: 0
     });
@@ -55,7 +55,7 @@ export default function GestionUsuarios() {
                         <input
                             className="p-3 rounded-lg bg-[#3a2a1d] text-[#fdfaf1] border border-[#5d432c] outline-none"
                             placeholder="Contraseña"
-                            type="text" // La dejo en text para que tú como admin las veas
+                            type="text"
                             value={formData.password}
                             onChange={e => setFormData({ ...formData, password: e.target.value })}
                         />

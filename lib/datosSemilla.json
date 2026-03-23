@@ -1,0 +1,182 @@
+[
+    {
+        "pregunta": "¿Cuál es el álbum más vendido de la historia?",
+        "options": [
+            "Back in Black",
+            "Thriller",
+            "The Dark Side of the Moon",
+            "Greatest Hits - Eagles"
+        ],
+        "correct_answer": "Thriller",
+        "genero": "Pop",
+        "explanation": "Thriller de Michael Jackson ha vendido más de 70 millones de copias."
+    },
+    {
+        "pregunta": "¿Qué guitarrista era conocido como 'Slowhand'?",
+        "options": [
+            "Jimi Hendrix",
+            "Eric Clapton",
+            "B.B. King",
+            "Jimmy Page"
+        ],
+        "correct_answer": "Eric Clapton",
+        "genero": "Blues Rock",
+        "explanation": "El apodo surgió en sus días con los Yardbirds debido a su forma de cambiar cuerdas en el escenario."
+    },
+    {
+        "pregunta": "¿De qué país era originaria la banda ABBA?",
+        "options": [
+            "Noruega",
+            "Dinamarca",
+            "Suecia",
+            "Finlandia"
+        ],
+        "correct_answer": "Suecia",
+        "genero": "Pop",
+        "explanation": "Ganaron Eurovisión en 1974 representando a Suecia con la canción 'Waterloo'."
+    },
+    {
+        "pregunta": "¿Quién compuso la famosa 'Quinta Sinfonía'?",
+        "options": [
+            "Mozart",
+            "Bach",
+            "Beethoven",
+            "Wagner"
+        ],
+        "correct_answer": "Beethoven",
+        "genero": "Clásica",
+        "explanation": "Es una de las composiciones más famosas del mundo, escrita entre 1804 y 1808."
+    },
+    {
+        "pregunta": "¿Qué banda de rock argentina lanzó el álbum 'Canción Animal' en 1990?",
+        "options": [
+            "Enanitos Verdes",
+            "Soda Stereo",
+            "Los Fabulosos Cadillacs",
+            "Babasónicos"
+        ],
+        "correct_answer": "Soda Stereo",
+        "genero": "Rock en Español",
+        "explanation": "Este disco contiene el himno 'De Música Ligera', uno de los más grandes del rock latino."
+    },
+    {
+        "pregunta": "¿Cuál es el nombre real del artista conocido como Bad Bunny?",
+        "options": [
+            "Benito Martínez",
+            "José Osorio",
+            "Juan Luis Londoño",
+            "Enmanuel Gazmey"
+        ],
+        "correct_answer": "Benito Martínez",
+        "genero": "Urbano",
+        "explanation": "Benito Antonio Martínez Ocasio es el nombre completo del 'Conejo Malo'."
+    },
+    {
+        "pregunta": "¿Qué instrumento tocaba principalmente Miles Davis?",
+        "options": [
+            "Saxo Alto",
+            "Piano",
+            "Trompeta",
+            "Contrabajo"
+        ],
+        "correct_answer": "Trompeta",
+        "genero": "Jazz",
+        "explanation": "Miles Davis fue una figura central en la evolución del Jazz moderno y el Cool Jazz."
+    },
+    {
+        "pregunta": "¿A qué banda pertenecía Freddie Mercury?",
+        "options": [
+            "The Who",
+            "Queen",
+            "Led Zeppelin",
+            "Pink Floyd"
+        ],
+        "correct_answer": "Queen",
+        "genero": "Rock",
+        "explanation": "Freddie Mercury fue el carismático vocalista de Queen hasta su fallecimiento en 1991."
+    },
+    {
+        "pregunta": "¿Qué canción de Luis Fonsi y Daddy Yankee rompió récords mundiales en 2017?",
+        "options": [
+            "Gasolina",
+            "Despacito",
+            "Calma",
+            "Bailando"
+        ],
+        "correct_answer": "Despacito",
+        "genero": "Pop Latino",
+        "explanation": "Fue la primera canción en español en llegar al #1 de Billboard Hot 100 desde la Macarena."
+    },
+    {
+        "pregunta": "¿Quién es considerada la 'Reina del Soul'?",
+        "options": [
+            "Whitney Houston",
+            "Tina Turner",
+            "Aretha Franklin",
+            "Etta James"
+        ],
+        "correct_answer": "Aretha Franklin",
+        "genero": "Soul/R&B",
+        "explanation": "Con éxitos como 'Respect', Aretha Franklin se consolidó como una voz inigualable."
+    },
+    {
+        "pregunta": "¿Qué banda británica creó el álbum 'Abbey Road'?",
+        "options": [
+            "The Rolling Stones",
+            "The Beatles",
+            "The Kinks",
+            "The Animals"
+        ],
+        "correct_answer": "The Beatles",
+        "genero": "Rock/Pop",
+        "explanation": "La icónica foto cruzando la calle fue tomada justo afuera de los estudios Abbey Road."
+    },
+    {
+        "pregunta": "¿En qué ciudad nació el género musical Jazz?",
+        "options": [
+            "Chicago",
+            "Nueva York",
+            "Nueva Orleans",
+            "Memphis"
+        ],
+        "correct_answer": "Nueva Orleans",
+        "genero": "Jazz",
+        "explanation": "A principios del siglo XX, la mezcla de culturas en Nueva Orleans dio origen al Jazz."
+    },
+    {
+        "pregunta": "¿Qué cantante colombiana es conocida como la 'Reina del Rock Latino'?",
+        "options": [
+            "Karol G",
+            "Shakira",
+            "Fanny Lu",
+            "Greeicy"
+        ],
+        "correct_answer": "Shakira",
+        "genero": "Pop/Rock",
+        "explanation": "Desde 'Pies Descalzos', Shakira se convirtió en la artista latina más influyente a nivel global."
+    },
+    {
+        "pregunta": "¿Qué rapero lanzó el influyente álbum 'The Marshall Mathers LP'?",
+        "options": [
+            "Jay-Z",
+            "Snoop Dogg",
+            "Eminem",
+            "Dr. Dre"
+        ],
+        "correct_answer": "Eminem",
+        "genero": "Hip Hop",
+        "explanation": "Es uno de los álbumes de rap más vendidos y polémicos de la historia."
+    },
+    {
+        "pregunta": "¿Cómo se llama el festival de música más famoso que tuvo lugar en 1969?",
+        "options": [
+            "Coachella",
+            "Lollapalooza",
+            "Woodstock",
+            "Glastonbury"
+        ],
+        "correct_answer": "Woodstock",
+        "genero": "Cultura Musical",
+        "explanation": "Woodstock 1969 fue el evento cumbre del movimiento hippie y la música rock."
+    }
+]

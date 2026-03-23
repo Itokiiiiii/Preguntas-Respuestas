@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
-// --- 1. OBTENER USUARIOS (Para el Panel Admin) ---
+// OBTENER USUARIOS (Para el Panel Admin)
 export async function GET() {
     try {
         const client = await clientPromise;
@@ -14,14 +14,14 @@ export async function GET() {
     }
 }
 
-// --- 2. CREAR O ACTUALIZAR (Tu lógica de registro + Admin) ---
+// CREAR O ACTUALIZAR (Tu lógica de registro + Admin)
 export async function POST(req: Request) {
     try {
         const body = await req.json();
         const client = await clientPromise;
         const db = client.db("trivia");
 
-        // CASO A: ACTUALIZAR (Si viene un _id)
+        // CASO A: ACTUALIZAR
         if (body._id) {
             const { _id, ...updateData } = body;
             await db.collection("users").updateOne(
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
             return NextResponse.json({ success: true, message: "Usuario actualizado" });
         }
 
-        // CASO B: REGISTRO NUEVO (Tu código original mejorado)
+        // CASO B: REGISTRO NUEVO
         const existingUser = await db.collection("users").findOne({
             username: body.username
         });
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
 
         await db.collection("users").insertOne({
             username: body.username,
-            password: body.password || "123456", // Password por defecto si creas desde admin
+            password: body.password || "123456",
             email: body.email || "",
             role: body.role || "user",
             score: body.score || 0,
@@ -55,7 +55,7 @@ export async function POST(req: Request) {
     }
 }
 
-// --- 3. ELIMINAR (Para el Panel Admin) ---
+// 3. ELIMINAR (Para el Panel Admin)
 export async function DELETE(req: Request) {
     try {
         const { searchParams } = new URL(req.url);
@@ -66,18 +66,14 @@ export async function DELETE(req: Request) {
         const client = await clientPromise;
         const db = client.db("trivia");
 
-        // Definimos el tipo explícitamente para que TS no marque error
-        // ... dentro de tu función DELETE
-        let query: any; // Usamos any aquí para evitar conflictos de tipos complejos
+        let query: any;
 
         try {
             query = { _id: new ObjectId(id) };
         } catch (e) {
-            // Si el ID es un string simple (como el vacío que tenías), lo usamos directo
             query = { _id: id };
         }
 
-        // Añadimos "as any" al final para que TS deje de marcar el error rojo
         const result = await db.collection("users").deleteOne(query as any);
 
         return NextResponse.json({

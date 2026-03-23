@@ -10,11 +10,13 @@ export async function POST(req: Request) {
 
         await db.collection("users").updateOne(
             { username: body.username },
-            { $max: { score: body.score } }
+            { 
+                $inc: { score: body.score }
+            }
         );
 
-        return NextResponse.json({ success: true });
+        return NextResponse.json({ success: true, message: "Puntaje acumulado" });
     } catch (error) {
-        return NextResponse.json({ error: "Error al guardar puntaje" }, { status: 500 });
+        return NextResponse.json({ error: "Error al sumar puntaje" }, { status: 500 });
     }
 }

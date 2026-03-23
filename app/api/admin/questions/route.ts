@@ -21,10 +21,9 @@ export async function POST(req: Request) {
         const client = await clientPromise;
         const db = client.db("trivia");
 
-        // Lógica que pediste: Verificar si ya existe por el texto de la pregunta
         const existe = await db.collection("questions").findOne({ pregunta: data.pregunta });
 
-        if (existe && !data._id) { // Si existe y no estamos editando una vieja
+        if (existe && !data._id) {
             return NextResponse.json({ error: "Esa pregunta ya existe en el disco." }, { status: 400 });
         }
 
