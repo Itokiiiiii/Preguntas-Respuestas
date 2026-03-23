@@ -22,13 +22,42 @@ export default function LoginPage() {
 
         if (isRegistering) {
             console.log("nuevo usuario ", formData.username);
-            //aqui deberia ir la logica de mongo pa registratr nuevos usuarios
+
+            const res = await fetch('/api/users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                alert(data.error || "Error al registrar");
+                return;
+            }
+
+            localStorage.setItem('user_name', formData.username);
+
             alert("Cuenta creada");
-            setIsRegistering(false); //pasa al login
+            setIsRegistering(false);
+
         } else {
             console.log("inicio sesiopn ", formData.username);
-            //mongo para el find
-            router.push('/Salon');
+
+            const res = await fetch('/api/users/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                localStorage.setItem('user_name', formData.username);
+                router.push('/Salon');
+            } else {
+                alert("Usuario o contraseña incorrectos");
+            }
         }
     };
 
